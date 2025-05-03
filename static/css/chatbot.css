@@ -1,0 +1,149 @@
+/* Estilo da Landing Page */
+.landing-hero {
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+ 
+}
+
+.landing-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.landing-hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.landing-hero .btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #4FC3F7;
+  color: #0A0A23;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.landing-hero .btn:hover {
+  background-color: #29B6F6;
+}
+
+.section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-left: 4px solid #4FC3F7;
+  padding-left: 10px;
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+#hero {
+  position: relative;
+  height: 100vh; /* altura de tela cheia */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+#hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 35, 0.7); /* camada escura por cima da imagem */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+#hero .content {
+  position: relative;
+  z-index: 2;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #4FC3F7;
+  margin-bottom: 20px;
+}
+
+#hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #e0f7fa;
+}
+
+#home {
+
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+@media (max-width: 480px) {
+  .chatbot-popup {
+      width: 95vw;
+      height: 90vh;
+      max-width: 95vw;
+      max-height: 90vh;
+      position: fixed;
+      bottom: 5vh;
+      right: 2.5vw;
+      left: 2.5vw;
+      border-radius: 12px;
+      z-index: 9999;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .chat-header,
+  .chat-footer {
+      padding: 10px;
+  }
+
+  .message-input {
+      font-size: 15px;
+      resize: none;
+      width: 100%;
+  }
+
+  .chat-form {
+      display: flex;
+      align-items: center;
+  }
+
+  .chat-controls {
+      margin-left: 6px;
+  }
+
+  #chat-box.chat-body {
+      height: calc(90vh - 120px); /* ajustado para novo tamanho */
+      overflow-y: auto;
+      padding: 10px;
+  }
+
+  .chatbot-logo {
+      width: 22px;
+      height: 22px;
+  }
+
+  .logo-text {
+      font-size: 15px;
+  }
+}

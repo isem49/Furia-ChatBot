@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FURIA - Página Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleteste.css') }}">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="bg-black shadow">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-indigo-600">MinhaMarca</h1>
+            <nav class="space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-indigo-600">Recursos</a>
+                <a href="#pricing" class="text-gray-600 hover:text-indigo-600">Preços</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="landing-hero">
+        <h1>Bem-vindo ao Universo FURIA</h1>
+        <p>Explore conteúdos exclusivos, interaja com o nosso time e tire dúvidas com o nosso Chatbot FURIA.</p>
+        <button class="btn" onclick="toggleChatbot()">Falar com o FURIA Bot</button>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section">
+        <h2>Sobre a FURIA</h2>
+        <p>Somos uma das maiores organizações de e-sports do Brasil, com foco em alto desempenho, inovação e conexão com
+            os fãs.</p>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section">
+        <h2>Contato</h2>
+        <p>Quer parcerias, suporte ou fazer parte da nossa equipe? Entre em contato conosco ou fale com o FURIA Bot!</p>
+    </section>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-popup">
+        <div class="chat-header">
+            <div class="header-info">
+                <img src="{{ url_for('static', filename='img/FuriaLogo.png') }}" alt="FURIA Logo" class="chatbot-logo">
+                <span class="logo-text">FURIA Chat</span>
+            </div>
+            <button id="close-chatbot" onclick="closeChatbot()" aria-label="Fechar chatbot">×</button>
+        </div>
+
+        <div id="chat-box" class="chat-body"></div>
+
+        <div class="chat-footer">
+            <form id="chat-form" class="chat-form">
+                <textarea id="user-input" class="message-input" placeholder="Digite sua mensagem..." autocomplete="off"
+                    required></textarea>
+                <div class="chat-controls">
+                    <button type="submit" id="send-message"><span>✔️</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <button id="chatbot-toggler" onclick="toggleChatbot()">
+        <span>💬</span>
+        <span>✖</span>
+    </button>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        function toggleChatbot() {
+            document.body.classList.toggle('show-chatbot');
+        }
+
+        function closeChatbot() {
+            document.body.classList.remove('show-chatbot');
+        }
+    </script>
+</body>
+
+</html>

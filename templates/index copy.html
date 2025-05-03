@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FURIA - Página Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<script>
+    window.addEventListener('scroll', function () {
+        const header = document.querySelector('header');
+        if (window.scrollY > 80) {
+            header.classList.remove('bg-transparent');
+            header.classList.add('bg-black', 'shadow-md');
+        } else {
+            header.classList.remove('bg-black', 'shadow-md');
+            header.classList.add('bg-transparent');
+        }
+    });
+</script>
+
+<body class="bg-gradient-to-b from-[#0f111c] to-[#0a0a23] text-white font-sans scroll-smooth">
+    <!-- Cabeçalho -->
+    <header class="bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-300 font-[Poppins]">
+        <div class="max-w-7xl mx-auto px-6 py-4 relative flex items-center">
+            <!-- Logo + texto -->
+            <div class="flex items-center space-x-3">
+                <img src="{{ url_for('static', filename='img/FuriaLogo.png') }}" alt="FuriaLogo" class="h-10 w-auto">
+                <span class="text-white text-xl font-semibold tracking-wide">FURIA</span>
+            </div>
+            <!-- Navegação centralizada estilizada -->
+            <nav class="absolute left-1/2 transform -translate-x-1/2 flex space-x-4 text-sm uppercase font-medium">
+                <a href="#home"
+                    class="text-white px-4 py-2 rounded-lg transition duration-300 hover:border hover:border-white/20 hover:bg-white/5">
+                    Home
+                </a>
+                <a href="#quem-somos"
+                    class="text-white px-4 py-2 rounded-lg transition duration-300 hover:border hover:border-white/20 hover:bg-white/5">
+                    Sobre
+                </a>
+                <a href="https://www.furia.gg/" target="_blank"
+                    class="text-white px-4 py-2 rounded-lg transition duration-300 hover:border hover:border-white/20 hover:bg-white/5">
+                    Loja
+                </a>
+                <a href="#rodape"
+                    class="text-white px-4 py-2 rounded-lg transition duration-300 hover:border hover:border-white hover:bg-white/5">
+                    Contato
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- HOME -->
+    <section id="home"
+        class="relative text-white h-screen px-6 flex flex-col justify-center items-center text-center overflow-hidden"
+        data-aos="fade-down">
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+            <source src="{{ url_for('static', filename='img/FuriaVideo.mp4') }}" type="video/mp4">
+            Seu navegador não suporta vídeos em HTML5.
+        </video>
+        <!-- Overlay escuro para legibilidade -->
+        <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+        <!-- Conteúdo da seção -->
+        <div class="relative z-20">
+            <h1 class="text-5xl font-extrabold mb-6">Bem-vindo ao Universo FURIA</h1>
+            <p class="text-lg max-w-2xl mx-auto mb-10 text-gray-300">
+                Explore conteúdos exclusivos, interaja com o nosso time e tire dúvidas com o nosso Chatbot FURIA.
+            </p>
+            <a href="#bot"
+                class="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-6 py-3 rounded-full shadow-lg transition"
+                onclick="toggleChatbot()">
+                💬 Falar com o FURIA Bot
+            </a>
+        </div>
+    </section>
+
+    <!--Quem Somos-->
+    <section id="quem-somos"
+        class="relative overflow-hidden py-24 bg-gradient-to-b from-[#0f111c] to-[#0a0a23] shadow-2xl mb-24 mx-auto max-w-6xl px-6"
+        data-aos="zoom-in">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute w-60 h-60 bg-[#6d28d9] blur-3xl opacity-30 rounded-full -top-20 -left-20"></div>
+            <div class="absolute w-32 h-32 bg-cyan-400 blur-2xl opacity-20 rounded-full -bottom-16 -right-10"></div>
+        </div>
+        <!-- Título -->
+        <div class="relative text-center mb-16">
+            <span class="bg-[#5c2ebd] text-white px-4 py-1 rounded-full text-sm font-semibold">SOBRE NÓS</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mt-6 text-white">Conheça o Nosso Time</h2>
+            <p class="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">Somos uma equipe apaixonada e comprometida, sempre
+                em busca da excelência em tudo o que fazemos.</p>
+        </div>
+        <!-- Imagem -->
+        <div class="relative mb-14 rounded-xl overflow-hidden shadow-xl">
+            <img src="{{ url_for('static', filename='img/image.png') }}" alt="Torcida FURIA"
+                class="w-full h-72 md:h-[420px] object-cover" />
+        </div>
+        <!-- Texto principal -->
+        <div class="relative text-gray-300 text-lg leading-relaxed space-y-6">
+            <p>
+                Somos a <span class="text-cyan-400 font-semibold">FURIA</span>, uma organização de esports que nasceu do
+                desejo de representar o Brasil no CS e conquistou muito mais que isso. Expandimos nossas ligas,
+                disputamos os principais títulos, adotamos novos objetivos e abraçamos um propósito maior.
+            </p>
+            <p>
+                Hoje, somos mais do que sucesso competitivo: <span class="text-cyan-400 font-semibold">somos um
+                    movimento sociocultural</span> que representa paixão, resiliência e inovação dentro e fora dos
+                servidores.
+            </p>
+
+            <h3 class="text-2xl font-bold text-white mt-12">Nossa História</h3>
+            <p>
+                A FURIA iniciou sua jornada no CS:GO e rapidamente se destacou, participando do seu primeiro Major em
+                2019 (IEM Katowice). Em 2020, conquistou a ESL Pro League América do Norte, e no ano seguinte firmou
+                parceria permanente com a ESL por meio do Acordo do Louvre, renovado até 2025.
+            </p>
+            <p>
+                Entre 2021 e 2022, consolidou-se como a principal equipe das Américas, alcançando as quartas de final
+                nos Majors de Estocolmo e Antuérpia. No IEM Rio Major 2022, impulsionada pela torcida brasileira, chegou
+                às semifinais seu melhor resultado até hoje.
+            </p>
+            <p>
+                Em 2023, contratou os veteranos FalleN e chelo, iniciando uma nova fase. Em 2024, reformulou o elenco:
+                arT foi movido ao banco após anos como capitão, guerri assumiu como Head de Esports. A FURIA também
+                renovou com suas estrelas KSCERATO e yuurih até 2027, trouxe skullz para o elenco principal e ampliou
+                sua comissão técnica com nomes internacionais, indicando uma expansão global para a era do CS2.
+            </p>
+        </div>
+    </section>
+
+    <!-- Jogadores -->
+    <section id="jogadores" class="bg-[#0f111c] text-white py-16" data-aos="zoom-in">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="bg-[#5c2ebd] text-white px-4 py-1 rounded-full text-sm font-semibold">NOSSA EQUIPE</span>
+                <h2 class="text-4xl font-bold mt-4">Conheça os Jogadores</h2>
+                <p class="text-gray-400 mt-2">Acompanhe os principais talentos que fazem parte da nossa equipe de
+                    esports.</p>
+            </div>
+            <div class="relative">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div
+                            class="swiper-slide bg-gradient-to-b from-[#0f111c] to-[#0a0a23] rounded-xl overflow-hidden shadow-lg">
+                            <img src="{{ url_for('static', filename='img/FalleN.jpg') }}"
+                                class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <span class="bg-purple-600 text-white text-xs px-3 py-1 rounded-full">Rifler</span>
+                                <h3 class="text-lg font-semibold mt-2">Gabriel "FalleN" Toledo</h3>
+                                <p class="text-sm text-gray-400">Uma lenda viva no CS:GO, não só por sua habilidade, mas
+                                    pelo peso histórico e estratégico que carrega no time.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="swiper-slide bg-gradient-to-b from-[#0f111c] to-[#0a0a23] rounded-xl overflow-hidden shadow-lg">
+                            <img src="{{ url_for('static', filename='img/KSCERATO.jpg') }}"
+                                class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <span class="bg-purple-600 text-white text-xs px-3 py-1 rounded-full">Rifler</span>
+                                <h3 class="text-lg font-semibold mt-2">Kaike "KSCERATO" Cerato</h3>
+                                <p class="text-sm text-gray-400">Um dos jogadores mais experientes da equipe, atuando
+                                    como rifler e suporte de confiança dentro do time.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="swiper-slide bg-gradient-to-b from-[#0f111c] to-[#0a0a23] rounded-xl overflow-hidden shadow-lg">
+                            <img src="{{ url_for('static', filename='img/yuurih.jpg') }}"
+                                class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <span class="bg-purple-600 text-white text-xs px-3 py-1 rounded-full">Rifler</span>
+                                <h3 class="text-lg font-semibold mt-2">Yuri "yuurih" Santos</h3>
+                                <p class="text-sm text-gray-400">Entry fragger e um dos principais jovens talentos da
+                                    equipe, conhecido por sua agressividade e precisão.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="swiper-slide bg-gradient-to-b from-[#0f111c] to-[#0a0a23] rounded-xl overflow-hidden shadow-lg">
+                            <img src="{{ url_for('static', filename='img/MOLODOY.jpg') }}"
+                                class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <span class="bg-purple-600 text-white text-xs px-3 py-1 rounded-full">AWPer</span>
+                                <h3 class="text-lg font-semibold mt-2">Danil "molodoy" Golubenko</h3>
+                                <p class="text-sm text-gray-400">Molodoy é um jogador bastante versátil que adiciona
+                                    mais profundidade tática ao time.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="swiper-slide bg-gradient-to-b from-[#0f111c] to-[#0a0a23] rounded-xl overflow-hidden shadow-lg">
+                            <img src="{{ url_for('static', filename='img/YEKINDAR.jpg') }}"
+                                class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <span class="bg-purple-600 text-white text-xs px-3 py-1 rounded-full">Rifler</span>
+                                <h3 class="text-lg font-semibold mt-2">Mareks "YEKINDAR" Gaļinskis</h3>
+                                <p class="text-sm text-gray-400">Renomado entry fragger internacional, ele soma
+                                    agressividade e dinamismo ao elenco.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev !text-white"></div>
+                <div class="swiper-button-next !text-white"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SwiperJS CSS & JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.mySwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,  // Loop infinito
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+                1280: {
+                    slidesPerView: 4,
+                }
+            }
+        });
+    </script>
+
+    <div class="bg-[#0f111c] overflow-hidden">
+        <!--Conquistas-->
+        <section id="conquistas" class="bg-[#0f111c] text-white py-20" data-aos="zoom-in">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <span class="bg-[#5c2ebd] text-white px-4 py-1 rounded-full text-sm font-semibold">HISTÓRICO</span>
+                    <h2 class="text-4xl font-bold mt-4">Conquistas Notáveis</h2>
+                    <p class="text-gray-400 mt-2">Algumas das vitórias que marcaram nossa história no competitivo.</p>
+                </div>
+
+                <div class="relative">
+                    <div class="swiper conquistasSwiper">
+                        <div class="swiper-wrapper">
+
+                            <!-- Card 1 -->
+                            <div class="swiper-slide bg-[#15172b] rounded-xl overflow-hidden shadow-lg flex flex-col">
+                                <img src="{{ url_for('static', filename='img/elisa-masters-espoo-2023.webp') }}"
+                                    class="w-full h-48 object-cover" />
+                                <div class="p-4 flex flex-col justify-between min-h-[160px]">
+                                    <h3 class="text-lg text-center font-semibold text-cyan-400 mb-1 ">Elisa Masters
+                                        Espoo 2023</h3>
+                                    <p class="text-sm"><strong>Posição:</strong> 1º</p>
+                                    <p class="text-sm"><strong>Resultado:</strong> 3×1 vs Apeks</p>
+                                    <p class="text-sm text-yellow-400"><strong>Premiação:</strong> US$100,000</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="swiper-slide bg-[#15172b] rounded-xl overflow-hidden shadow-lg flex flex-col">
+                                <img src="{{ url_for('static', filename='img/600px-ESL_Pro_League_2019_new.png') }}"
+                                    class="w-full h-48 object-cover" />
+                                <div class="p-4 flex flex-col justify-between min-h-[160px]">
+                                    <h3 class="text-lg text-center font-semibold text-cyan-400 mb-1">ESL Pro League
+                                        Season 12 NA
+                                    </h3>
+                                    <p class="text-sm"><strong>Posição:</strong> 1º</p>
+                                    <p class="text-sm"><strong>Resultado:</strong> 3×0 vs 100 Thieves</p>
+                                    <p class="text-sm text-yellow-400"><strong>Premiação:</strong> US$77,500</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="swiper-slide bg-[#15172b] rounded-xl overflow-hidden shadow-lg flex flex-col">
+                                <img src="{{ url_for('static', filename='img/euqm7npvaamm8ng.webp') }}"
+                                    class="w-full h-48 object-cover" />
+                                <div class="p-4 flex flex-col justify-between min-h-[160px]">
+                                    <h3 class="text-lg text-center font-semibold text-cyan-400 mb-1">DreamHack Masters
+                                        Spring 2020
+                                        NA</h3>
+                                    <p class="text-sm"><strong>Posição:</strong> 1º</p>
+                                    <p class="text-sm"><strong>Resultado:</strong> 3×0 vs Team Liquid</p>
+                                    <p class="text-sm text-yellow-400"><strong>Premiação:</strong> US$40,000</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="swiper-slide bg-[#15172b] rounded-xl overflow-hidden shadow-lg flex flex-col">
+                                <img src="{{ url_for('static', filename='img/arctic-invitational-gsgo-fi-postcard_postcard_400x210_imgcomp205-27.jpg') }}"
+                                    class="w-full h-48 object-cover" />
+                                <div class="p-4 flex flex-col justify-between min-h-[160px]">
+                                    <h3 class="text-lg text-center font-semibold text-cyan-400 mb-1">Arctic Invitational
+                                        2019</h3>
+                                    <p class="text-sm"><strong>Posição:</strong> 1º</p>
+                                    <p class="text-sm"><strong>Resultado:</strong> 2×0 vs SJ Gaming</p>
+                                    <p class="text-sm text-yellow-400"><strong>Premiação:</strong> US$66,519</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div class="swiper-slide bg-[#15172b] rounded-xl overflow-hidden shadow-lg flex flex-col">
+                                <img src="{{ url_for('static', filename='img/images.jfif') }}"
+                                    class="w-full h-48 object-cover" />
+                                <div class="p-4 flex flex-col justify-between min-h-[160px]">
+                                    <h3 class="text-lg text-center font-semibold text-cyan-400 mb-1">EMF CS:GO World
+                                        Invitational
+                                        2019
+                                    </h3>
+                                    <p class="text-sm"><strong>Posição:</strong> 1º</p>
+                                    <p class="text-sm"><strong>Resultado:</strong> 3×1 vs Absolute</p>
+                                    <p class="text-sm text-yellow-400"><strong>Premiação:</strong> US$63,951</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 6 -->
+                            <div class="swiper-slide bg-[#15172b] rounded-xl overflow-hidden shadow-lg flex flex-col">
+                                <img src="{{ url_for('static', filename='img/Wb56tpfyBp7wDsrz_fPp9A.jpg') }}"
+                                    class="w-full h-48 object-cover" />
+                                <div class="p-4 flex flex-col justify-between min-h-[160px]">
+                                    <h3 class="text-lg  text-cyan-400 mb-1 text-center">ESEA Season 31 Global Challenge
+                                    </h3>
+                                    <p class="text-sm"><strong>Posição:</strong> 1º</p>
+                                    <p class="text-sm"><strong>Resultado:</strong> 2×0 vs Team One</p>
+                                    <p class="text-sm text-yellow-400"><strong>Premiação:</strong> US$25,000</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Swiper Navigation -->
+                    <div class="swiper-button-prev !text-white"></div>
+                    <div class="swiper-button-next !text-white"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <section id="gameplay" class="bg-gradient-to-br from-[#0f111c] to-[#05060d] text-white py-20" data-aos="zoom-in">
+        <div class="max-w-7xl mx-auto px-6">
+      
+          <!-- Título -->
+          <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="bg-[#5c2ebd] text-white px-4 py-1 rounded-full text-sm font-semibold">GAMEPLAY</span>
+                <h2 class="text-4xl font-bold mt-4">Assista aos Melhores Momentos</h2>
+                <p class="text-gray-400 mt-2">Confira as jogadas que definiram a trajetória da FURIA no cenário
+                    competitivo.</p>
+            </div>
+        </div>
+      
+          <!-- Player principal estilizado -->
+          <div class="relative mb-16 overflow-hidden rounded-3xl border-4 border-indigo-700 shadow-[0_0_30px_#5c2ebd] transition-all duration-300 group">
+            <video id="mainVideo" controls class="w-full h-[500px] object-cover rounded-2xl group-hover:brightness-110">
+              <source src="{{ url_for('static', filename='img/Elisa.mp4') }}" type="video/mp4" />
+              Seu navegador não suporta vídeo.
+            </video>
+          </div>
+      
+          <!-- Miniaturas modernizadas -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+            {% set videos = [
+              {'src': 'img/Elisa.mp4', 'title': 'Elisa Masters Espoo 2023'},
+              {'src': 'img/ELS.mp4', 'title': 'ESL Pro League Season 12'},
+              {'src': 'img/DreamHack.mp4', 'title': 'DreamHack Masters Spring 2020'},
+              {'src': 'img/Artic.mp4', 'title': 'Arctic Invitational 2019'},
+              {'src': 'img/Invitational.mp4', 'title': 'EMF CS:GO Invitational 2019'},
+              {'src': 'img/ESEA.mp4', 'title': 'ESEA Season 31 Global Challenge'}
+            ] %}
+      
+            {% for video in videos %}
+            <div onclick="switchVideo('{{ video.src }}')" class="cursor-pointer transition-transform transform hover:scale-105 group">
+              <div class="relative rounded-2xl overflow-hidden border-2 border-transparent group-hover:border-purple-500 transition duration-300 shadow-lg">
+                <video muted loop class="w-full h-28 object-cover pointer-events-none group-hover:brightness-125 group-hover:contrast-125">
+                  <source src="{{ url_for('static', filename=video.src) }}" type="video/mp4" />
+                </video>
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div class="text-sm text-center text-gray-300 mt-2 group-hover:text-white transition">
+                {{ video.title }}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+      
+        </div>
+      </section>
+      
+      <script>
+        function switchVideo(path) {
+          const mainVideo = document.getElementById('mainVideo');
+          const source = mainVideo.querySelector('source');
+          source.src = "{{ url_for('static', filename='') }}" + path;
+          mainVideo.load();
+        }
+      </script>
+      
+
+    <!-- Patrocinadores -->   
+    <section id="patrocinadores" class="bg-[#0f111c] py-20 text-white text-center" data-aos="zoom-in">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="bg-[#6d28d9] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    NOSSOS PATROCINADORES
+                </span>
+                <h3 class="text-4xl font-bold mt-4">Agradecemos pelo Apoio</h3>
+                <p class="text-gray-400 mt-2">Conheça as empresas e marcas que tornam possível o nosso sucesso.</p>
+            </div>
+
+            <div class="swiper mySwiperSponsors">
+                <div class="swiper-wrapper items-center">
+                    <!-- Slide: Adidas -->
+                    <div class="swiper-slide flex justify-center items-center">
+                        <img src="{{ url_for('static', filename='img/adidas-logo-adidas-icon-transparent-free-png.webp') }}"
+                            alt="adidas"
+                            class="h-20 md:h-24 object-contain mx-auto filter grayscale contrast-125 brightness-90 hover:brightness-110 hover:grayscale-0 hover:scale-105 transition duration-300">
+                    </div>
+                    <!-- Slide: Red Bull -->
+                    <div class="swiper-slide flex justify-center items-center">
+                        <img src="{{ url_for('static', filename='img/red-bull-logo-2-1.png') }}" alt="redbull"
+                            class="h-16 md:h-20 object-contain mx-auto filter grayscale contrast-125 brightness-90 hover:brightness-110 hover:grayscale-0 hover:scale-105 transition duration-300">
+                    </div>
+                    <!-- Slide: Hellmanns -->
+                    <div class="swiper-slide flex justify-center items-center">
+                        <img src="{{ url_for('static', filename='img/Hellmanns-Logo.png') }}" alt="hellmanns"
+                            class="h-16 md:h-20 object-contain mx-auto filter grayscale contrast-125 brightness-90 hover:brightness-110 hover:grayscale-0 hover:scale-105 transition duration-300">
+                    </div>
+                    <!-- Slide: Lenovo Legion -->
+                    <div class="swiper-slide flex justify-center items-center">
+                        <img src="{{ url_for('static', filename='img/Legion_by_Lenovo.png') }}" alt="legion"
+                            class="h-16 md:h-20 object-contain mx-auto filter grayscale contrast-125 brightness-90 hover:brightness-110 hover:grayscale-0 hover:scale-105 transition duration-300">
+                    </div>
+                    <!-- Slide: Cruzeiro -->
+                    <div class="swiper-slide flex justify-center items-center">
+                        <img src="{{ url_for('static', filename='img/logo_virtual.svg') }}" alt="cruzeiro"
+                            class="h-16 md:h-20 object-contain mx-auto filter grayscale contrast-125 brightness-90 hover:brightness-110 hover:grayscale-0 hover:scale-105 transition duration-300">
+                    </div>
+                    <!-- Slide: PokerStars -->
+                    <div class="swiper-slide flex justify-center items-center">
+                        <img src="{{ url_for('static', filename='img/1_pscommunicationslockup_mono_white_rgb.webp') }}"
+                            alt="pokerStars"
+                            class="h-16 md:h-20 object-contain mx-auto filter grayscale contrast-125 brightness-90 hover:brightness-110 hover:grayscale-0 hover:scale-105 transition duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="rodape" class="bg-[#0a0a23] text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <!-- Logo e descrição (Ocupa mais espaço vertical) -->
+            <div class="space-y-4 md:pr-8">
+                <div class="flex items-center space-x-3">
+                    <img src="{{ url_for('static', filename='img/FuriaLogo.png') }}" alt="Logo FURIA"
+                        class="h-10 w-auto">
+                    <span class="text-xl font-bold text-white">FURIA</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    Muito mais que um time, somos um movimento.<br>
+                    Paixão e excelência no mundo dos esports.
+                </p>
+            </div>
+
+            <!-- Institucional (Alinhamento limpo) -->
+            <div class="md:pl-4">
+                <h4 class="text-white font-semibold mb-4 text-lg border-b border-[#4FC3F7] pb-2 w-max">Institucional
+                </h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#quem-somos" class="hover:text-cyan-400 transition flex items-center gap-2">
+                            <span class="w-1 h-1 bg-cyan-400 rounded-full"></span>
+                            Sobre Nós
+                        </a></li>
+                    <li><a href="#jogadores" class="hover:text-cyan-400 transition flex items-center gap-2">
+                            <span class="w-1 h-1 bg-cyan-400 rounded-full"></span>
+                            Nossa Equipe
+                        </a></li>
+                </ul>
+            </div>
+
+            <!-- Tecnologias (Centralizado com destaque) -->    
+            <div class="md:border-x border-[#2a2d45] md:px-6">
+                <h4 class="text-white font-semibold border-b border-[#4FC3F7] pb-2 mb-4 text-lg text-center">Tecnologias Principais</h4>
+                <div class="flex justify-center gap-4 flex-wrap">
+                    <a href="https://tailwindcss.com/" target="_blank" class="group" title="Tailwind CSS">
+                        <img src="{{ url_for('static', filename='img/tailwind.png') }}" alt="Tailwind CSS"
+                            class="h-8 transition-transform group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(56,182,255,0.6)]">
+                    </a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="group" title="JavaScript">
+                        <img src="{{ url_for('static', filename='img/javascript-svgrepo-com.svg') }}" alt="JavaScript"
+                            class="h-8 transition-transform group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(247,223,30,0.6)]">
+                    </a>
+                    <a href="https://swiperjs.com/" target="_blank" class="group" title="Swiper JS">
+                        <img src="{{ url_for('static', filename='img/swiper-logo.svg') }}" alt="Swiper JS"
+                            class="h-8 transition-transform group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(0,122,255,0.6)]">
+                    </a>
+                </div>
+                <p class="text-xs text-gray-500 mt-3 text-center">
+                    Tecnologias utilizadas neste projeto
+                </p>
+            </div>
+
+            <!-- Redes sociais (Ícones com efeito moderno) -->
+            <div class="md:pl-4">
+                <h4 class="text-white font-semibold mb-4 text-lg border-b border-[#4FC3F7] pb-2 w-max">Conecte-se</h4>
+                <div class="flex justify-start md:justify-start gap-3 flex-wrap">
+                    <a href="https://www.instagram.com/furiagg/" target="_blank" class="social-icon" title="Instagram">
+                        <img src="{{ url_for('static', filename='img/instagram-white-icon.png') }}"
+                            class="h-8 hover:scale-125 transition-transform duration-300">
+                    </a>
+                    <a href="https://api.whatsapp.com/send?l=pt&phone=5511945128297&text=Poderia%20me%20ajudar?"
+                        target="_blank" class="social-icon" title="WhatsApp">
+                        <img src="{{ url_for('static', filename='img/whatsapp-white-icon.png') }}"
+                            class="h-8 hover:scale-125 transition-transform duration-300">
+                    </a>
+                    <a href="https://www.twitch.tv/furiatv" target="_blank" class="social-icon" title="Twitch">
+                        <img src="{{ url_for('static', filename='img/twitch-white-icon.png') }}"
+                            class="h-8 hover:scale-125 transition-transform duration-300">
+                    </a>
+                    <a href="https://discord.com/invite/furia" target="_blank" class="social-icon" title="Discord">
+                        <img src="{{ url_for('static', filename='img/discord-white-icon.png') }}"
+                            class="h-8 hover:scale-125 transition-transform duration-300">
+                    </a>
+                    <a href="https://x.com/FURIA" target="_blank" class="social-icon" title="X (Twitter)">
+                        <img src="{{ url_for('static', filename='img/x-social-media-white-icon.png') }}"
+                            class="h-8 hover:scale-125 transition-transform duration-300">
+                    </a>
+                    <a href="https://www.youtube.com/@FURIAggCS/videos" target="_blank" class="social-icon"
+                        title="Youtube">
+                        <img src="{{ url_for('static', filename='img/youtube-app-white-icon.png') }}"
+                            class="h-8 hover:scale-125 transition-transform duration-300">
+                    </a>
+                </div>
+                <p class="text-xs text-gray-500 mt-3">
+                    Siga-nos para atualizações
+                </p>
+            </div>
+        </div>
+        <!-- Créditos finais -->
+        <div class="mt-10 text-center text-sm text-gray-500 border-t border-gray-800 pt-6">
+            © 2025 FURIA. Todos os direitos reservados.
+        </div>
+    </footer>
+    <!-- CHATBOT -->
+    <div class="chatbot-popup">
+        <div class="chat-header">
+            <div class="header-info">
+                <img src="{{ url_for('static', filename='img/FuriaLogo.png') }}" alt="FURIA Logo" class="chatbot-logo">
+                <span class="logo-text">FURIA Chat</span>
+            </div>
+            <button id="close-chatbot" onclick="closeChatbot()" aria-label="Fechar chatbot">×</button>
+        </div>
+
+        <div id="chat-box" class="chat-body"></div>
+
+        <div class="chat-footer">
+            <form id="chat-form" class="chat-form">
+                <textarea id="user-input" class="message-input" placeholder="Digite sua mensagem..."
+                    required></textarea>
+                <div class="chat-controls">
+                    <button type="submit" id="send-message" aria-label="Enviar mensagem"><span>✔️</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <button id="chatbot-toggler" onclick="toggleChatbot()" aria-label="Abrir chatbot">
+        <span>💬</span>
+        <span>✖</span>
+    </button>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        function toggleChatbot() {
+            document.body.classList.toggle('show-chatbot');
+        }
+
+        function closeChatbot() {
+            document.body.classList.remove('show-chatbot');
+        }
+    </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiperSponsors = new Swiper('.mySwiperSponsors', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            }
+        });
+
+        const swiperSocial = new Swiper('.mySwiperSocial', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            }
+        });
+    </script>
+    <!-- SwiperJS CSS & JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const conquistasSwiper = new Swiper('.conquistasSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+                1280: {
+                    slidesPerView: 4,
+                }
+            }
+        });
+    </script>
+</body>
+</html>
