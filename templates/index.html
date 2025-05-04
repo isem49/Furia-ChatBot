@@ -558,7 +558,8 @@
             </div>
 
             <!-- Miniaturas -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 text-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+
                 <!-- Card 1 -->
                 <div onclick="switchVideo('img/Elisa.mp4')" class="cursor-pointer group w-[160px] mx-auto">
                     <div
@@ -1106,10 +1107,12 @@
         </div>
     </div>
 
+    <di> <!-- mostrar -->
     <button id="chatbot-toggler" onclick="toggleChatbot()" aria-label="Abrir chatbot">
         <span>💬</span>
         <span>✖</span>
     </button>
+    </di>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script>
