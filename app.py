@@ -1,11 +1,17 @@
 # Importando bibliotecas 
 from flask import Flask, render_template, request, jsonify
 from openai import OpenAI
+import os
+from dotenv import load_dotenv
 
+# Carregar variáveis do arquivo .env
+load_dotenv()
+
+# Inicializar a aplicação Flask
 app = Flask(__name__)
 
-# Configurar o cliente OpenAI
-client = OpenAI(api_key="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")
+# Configurar o cliente OpenAI com a chave vinda do ambiente
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Histórico de mensagens
 historico_mensagens = []
