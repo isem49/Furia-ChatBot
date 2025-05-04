@@ -106,3 +106,9 @@ window.addEventListener('scroll', () => {
 });
 
 
+// Garante que o input fique visível quando o teclado abrir no mobile
+userInput.addEventListener('focus', () => {
+    setTimeout(() => {
+        userInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300); // tempo suficiente após o teclado abrir
+});
