@@ -481,7 +481,6 @@
                             </button>
 
                             <!-- Volume -->
-                            <!-- Volume -->
                             <div class="flex items-center group">
                                 <button id="muteButton" class="text-white hover:text-blue-400 transition">
                                     <!-- Ícone de volume -->
@@ -504,36 +503,30 @@
 
                         <div class="flex items-center space-x-4">
                             <!-- Velocidade -->
-                            <div class="relative group">
+                            <div class="relative">
                                 <button id="speedButton"
-                                    class="text-xs text-white hover:text-blue-400 transition px-2 py-1 rounded">
-                                    1x
+                                  class="text-xs text-white hover:text-blue-400 transition px-2 py-1 rounded">
+                                  1x
                                 </button>
-                                <div
-                                    class="absolute bottom-full left-0 mb-2 w-20 bg-[#1a1d2e] rounded-md shadow-lg hidden group-hover:block z-10">
-                                    <div class="py-1">
-                                        <button
-                                            class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
-                                            data-speed="0.5">0.5x</button>
-                                        <button
-                                            class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
-                                            data-speed="0.75">0.75x</button>
-                                        <button
-                                            class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
-                                            data-speed="1">1x</button>
-                                        <button
-                                            class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
-                                            data-speed="1.25">1.25x</button>
-                                        <button
-                                            class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
-                                            data-speed="1.5">1.5x</button>
-                                        <button
-                                            class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
-                                            data-speed="2">2x</button>
-                                    </div>
+                                <div id="speedMenu"
+                                  class="absolute bottom-full left-0 mb-2 w-20 bg-[#1a1d2e] rounded-md shadow-lg hidden z-10">
+                                  <div class="py-1">
+                                    <button class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
+                                      data-speed="0.5">0.5x</button>
+                                    <button class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
+                                      data-speed="0.75">0.75x</button>
+                                    <button class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
+                                      data-speed="1">1x</button>
+                                    <button class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
+                                      data-speed="1.25">1.25x</button>
+                                    <button class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
+                                      data-speed="1.5">1.5x</button>
+                                    <button class="speed-option block w-full text-left px-3 py-1 text-xs text-white hover:bg-blue-500"
+                                      data-speed="2">2x</button>
+                                  </div>
                                 </div>
-                            </div>
-
+                              </div>
+                              
                             <!-- Tela cheia -->
                             <button id="fullscreenButton" class="text-white hover:text-blue-400 transition">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
