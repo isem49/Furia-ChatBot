@@ -404,6 +404,8 @@ body.show-chatbot .chatbot-popup {
   padding-right: 10px; /* evita corte do conteúdo com a barra de rolagem */
 }
 
+
+
 #chatbot-toggler span {
   transition: opacity 0.3s ease;
 }
@@ -413,7 +415,7 @@ body.show-chatbot .chatbot-popup {
   z-index: 9999;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .chatbot-popup {
     position: fixed;
     bottom: 0;
@@ -424,7 +426,7 @@ body.show-chatbot .chatbot-popup {
     background-color: rgba(10, 10, 35, 0.95);
     display: flex;
     flex-direction: column;
-    border-radius: 16px 16px 0 0;
+    border-radius: 16px 16px 16px 16px;
     overflow: hidden; /* Evita que mensagens saiam para fora */
     z-index: 9999;
   }
@@ -448,6 +450,7 @@ body.show-chatbot .chatbot-popup {
     flex-shrink: 0;
     padding: 10px;
     background-color: transparent;
+    
   }
 
   .chat-form {
@@ -477,5 +480,12 @@ body.show-chatbot .chatbot-popup {
   .logo-text {
     font-size: 15px;
   }
+
+  #chat-box {
+    max-height: 100vh; /* ou até mesmo 100vh se quiser ocupar a tela inteira */
+  }
+
 }
+
+
 
