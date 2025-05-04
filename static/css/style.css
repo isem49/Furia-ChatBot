@@ -418,8 +418,8 @@ body.show-chatbot .chatbot-popup {
 @media (max-width: 768px) {
   .chatbot-popup {
     position: fixed;
-  
     right: 20px;
+    top: 10mm;
     width: 100%;
     max-width: 320px;
     height: 1000px; /* Altura real da viewport visível */
@@ -429,7 +429,6 @@ body.show-chatbot .chatbot-popup {
     border-radius: 16px 16px 16px 16px;
     overflow: hidden; /* Evita que mensagens saiam para fora */
     z-index: 9999;
-    margin-bottom: 60px;
   }
 
   .chat-header {
@@ -487,6 +486,3 @@ body.show-chatbot .chatbot-popup {
   }
 
 }
-
-
-
