@@ -421,8 +421,8 @@ body.show-chatbot .chatbot-popup {
     bottom: 0;
     right: 20px;
     width: 100%;
-    max-width: 400px;
-    height: 100dvh; /* Altura real da viewport visível */
+    max-width: 320px;
+    height: 1000px; /* Altura real da viewport visível */
     background-color: rgba(10, 10, 35, 0.95);
     display: flex;
     flex-direction: column;
