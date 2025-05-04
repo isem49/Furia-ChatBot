@@ -418,7 +418,7 @@ body.show-chatbot .chatbot-popup {
 @media (max-width: 768px) {
   .chatbot-popup {
     position: fixed;
-    bottom: 0;
+  
     right: 20px;
     width: 100%;
     max-width: 320px;
@@ -429,6 +429,7 @@ body.show-chatbot .chatbot-popup {
     border-radius: 16px 16px 16px 16px;
     overflow: hidden; /* Evita que mensagens saiam para fora */
     z-index: 9999;
+    margin-bottom: 60px;
   }
 
   .chat-header {

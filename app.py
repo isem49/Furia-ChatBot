@@ -5,7 +5,7 @@ from openai import OpenAI
 app = Flask(__name__)
 
 # Configurar o cliente OpenAI
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 
 # Histórico de mensagens
 historico_mensagens = []
