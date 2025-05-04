@@ -486,3 +486,18 @@ body.show-chatbot .chatbot-popup {
   }
 
 }
+
+
+:fullscreen video,
+:-webkit-full-screen video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+:fullscreen #videoContainer,
+:-webkit-full-screen #videoContainer {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+}
